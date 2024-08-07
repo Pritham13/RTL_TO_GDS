@@ -133,4 +133,4 @@ set_output_load -max 80 [get_ports o_Q];
 set_output_load -min 20 [get_ports o_Q];
 ```
 ## Simulation screenshot
-[!simulation screenshot](imgs/counter_results.png)
+![image](imgs/counter_results.png)
