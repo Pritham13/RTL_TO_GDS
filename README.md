@@ -132,4 +132,5 @@ set_output_delay -min 0.5 -clock [get_clocks clk][get_ports o_Q];
 set_output_load -max 80 [get_ports o_Q];
 set_output_load -min 20 [get_ports o_Q];
 ```
-
+## Simulation screenshot
+[!simulation screenshot](img/counter_results.png)
