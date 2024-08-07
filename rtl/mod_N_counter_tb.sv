@@ -76,11 +76,5 @@ initial begin
   $dumpfile("waves.vcd");
   $dumpvars();
 end
-// Monitor output
-initial begin
-    $monitor("Time = %0dns, i_rst = %b, i_en = %b, i_up_down = %b, o_Q = %d", 
-             $time, i_rst, i_en, i_up_down, o_Q);
-end
-
 endmodule
 
