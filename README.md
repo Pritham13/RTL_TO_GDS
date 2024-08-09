@@ -1,4 +1,50 @@
-# Mod N up down counter 
+# Mod N up down counter
+## RTL using FSM 
+```verilog
+module mod_N_counter #(parameter WIDTH = 2 ,parameter N = 3)(
+  input i_clk,
+  input i_rst,
+  input i_en,
+  input i_up_down,
+  output reg [WIDTH-1:0] o_Q
+  );
+parameter [2:0] RST = 3'b000,
+                INCREMENT = 3'b011,
+                DECREMENT = 3'b010,
+                IDLE = 3'b111;
+
+reg [2:0]state,next;
+// sequential asysnchronous reset 
+always @ (posedge i_clk or posedge i_rst) begin
+  state <= (i_rst) ? RST : next;
+end
+// combinational always state assginment 
+always @ (state or next or i_en or i_up_down) begin
+  case (state)
+    //RST : next = ((!i_en) || i_rst)? ((! i_en) ? IDLE : RST) : { i_rst , i_en , i_up_down};
+    RST: next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
+    INCREMENT: next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
+    DECREMENT: next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
+    IDLE: next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
+    default: next = RST;
+  endcase
+end
+// sequential output assignment 
+always @ (posedge i_clk) begin
+  case (state)
+    RST : o_Q <=0;
+
+    INCREMENT : o_Q <= (o_Q == N-1) ? 0 : (o_Q + 1) ;
+
+    DECREMENT : o_Q <=  (o_Q == 0) ? N-1 : (o_Q - 1) ;
+
+    IDLE : o_Q <= o_Q ;
+
+    default : o_Q <=0;
+  endcase
+end
+endmodule
+```
 ## RTL
 ``` verilog
 module mod_N_counter #(parameter WIDTH = 2 ,parameter N = 3)(
@@ -108,14 +154,7 @@ endmodule
 ```
 ## Constraints 
 ```tcl 
-#setting up clock , - wave{first rise edge , first fall edge}
 create_clock -period 5 -name clk [get_ports clk] -wave{0,5};
-#uncomment the following to set latency if 3ns to the clock 
-#set_clock_latency 3 clk
-
-#uncomment the following line to set jitter and skew 
-#set_clock_uncertainty 0.5 clk
-
 #####setting IO paths ##########
 #setting up max and min input delay
 set_input_delay -max 3 -clock [get_clocks clk][get_portsIN_*];
@@ -128,9 +167,6 @@ set_input_transition -min 7.5 [get_portsIN_*];
 #setting up max and min input delay
 set_output_delay -max 3 -clock [get_clocks clk][get_ports o_Q];
 set_output_delay -min 0.5 -clock [get_clocks clk][get_ports o_Q];
-#setting up max and min input transistion 
-set_output_load -max 80 [get_ports o_Q];
-set_output_load -min 20 [get_ports o_Q];
 ```
 ## Simulation screenshot
 ![image](imgs/counter_results.png)

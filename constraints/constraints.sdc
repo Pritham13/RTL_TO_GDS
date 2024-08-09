@@ -1,5 +1,5 @@
 #setting up clock , - wave{first rise edge , first fall edge}
-create_clock -period 5 -name clk [get_ports clk] -wave{0,5};
+create_clock -period 5 -name clk [get_ports clk] -waveform {0,5};
 #uncomment the following to set latency if 3ns to the clock 
 #set_clock_latency 3 clk
 
@@ -18,8 +18,4 @@ set_input_transition -min 7.5 [get_portsIN_*];
 #setting up max and min input delay
 set_output_delay -max 3 -clock [get_clocks clk][get_ports o_Q];
 set_output_delay -min 0.5 -clock [get_clocks clk][get_ports o_Q];
-#setting up max and min input transistion 
-set_output_load -max 80 [get_ports o_Q];
-set_output_load -min 20 [get_ports o_Q];
-
 
