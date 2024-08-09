@@ -1,4 +1,39 @@
 # Mod N up down counter
+## __Introduction__
+ The mod-N conditional up-down counter is a digital counter that counts up or down based on a
+ control signal and wraps around after reaching a maximum count of N-1.
+ It is commonly used in applications where counting in a specific range with directional control is
+ required
+ 
+## Features
+- Counts from 0 to N-1
+- Up and down counting capability based on control signal
+- Synchronous operation with a clock signal
+- Conditional counting based on an enable signal
+- Reset functionality to initialize the counter
+## Inputs
+ - Clock (i_clk) : The primary clock signal for synchronizing the counter.
+ - Reset (i_rst) : An asynchronous signal that resets the counter to 0 when asserted.
+ - Enable (i_en) : A signal that enables counting when asserted. When deasserted, the counter
+ holds its value.
+ - Up/Down (i_up_down) : A control signal that determines the counting direction. When
+ asserted (high), the counter counts up; when deasserted (low), the counter counts down.
+## Outputs
+ - Count (o_Q): The current value of the counter, ranging from 0 to N-1
+ ## Operation
+ - Counting Up: When `up_down` is high and `en` is asserted, the counter increments its value
+ on each rising edge of the clock.
+ - Counting Down: When `up_down` is low and `en` is asserted, the counter decrements its
+ value on each rising edge of the clock.
+ - Wrap Around : When counting up and the counter reaches N-1, it wraps around to 0 on the next clock edge.- When counting down and the counter reaches 0, it wraps around to N-1 on the next clock
+ edge.
+ - Hold : When `en` is deasserted, the counter holds its current value regardless of the clock
+ edges.
+ - Reset : When `rst` is asserted, the counter is asynchronously reset to 0, overriding all other
+ signals
+
+ ## Digital circuit 
+ ![image](/imgs/digital_circuit.png)
 ## RTL using FSM 
 ```verilog
 module mod_N_counter #(parameter WIDTH = 2 ,parameter N = 3)(
