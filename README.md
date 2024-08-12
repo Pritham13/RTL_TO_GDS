@@ -66,7 +66,10 @@ always @ (state or next or i_en or i_up_down) begin
       next = (o_Q == N-1) ? WRAP : next;
     end 
     
-    DECREMENT : next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
+    DECREMENT : begin  
+      next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
+      next = (o_Q == 0) ? WRAP : next;
+    end 
     
     WRAP : begin  
       next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
@@ -86,7 +89,8 @@ always @ (posedge i_clk) begin
 
     DECREMENT : o_Q <= o_Q - 1;
 
-    WRAP : o_Q <= 0;
+    WRAP : o_Q <= (o_Q == N-1) ? 0 : 1;
+
     IDLE : o_Q <= o_Q ;
 
     default : o_Q <=0;
