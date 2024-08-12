@@ -92,7 +92,8 @@ always @ (posedge i_clk) begin
     default : o_Q <=0;
   endcase
 end
-endmodule```
+endmodule
+```
 ## RTL
 ``` verilog
 module mod_N_counter #(parameter WIDTH = 2 ,parameter N = 3)(
