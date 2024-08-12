@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-`include "mod_N_counter.sv"
+`include "mod_N_counter_FSM_2.sv"
 
 module tb_mod_N_counter;
 

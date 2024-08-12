@@ -1,10 +1,12 @@
+set sdc_version 2.1
+
 #setting up clock , - wave{first rise edge , first fall edge}
-create_clock -period 5 -name clk [get_ports clk] -waveform {0,5};
+create_clock -period 5 -name clk [get_ports clk] -waveform 0 , 5;
 #uncomment the following to set latency if 3ns to the clock 
-#set_clock_latency 3 clk
+set_clock_latency 3 clk
 
 #uncomment the following line to set jitter and skew 
-#set_clock_uncertainty 0.5 clk
+set_clock_uncertainty 0.5 clk
 
 #####setting IO paths ##########
 #setting up max and min input delay

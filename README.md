@@ -25,15 +25,16 @@
  on each rising edge of the clock.
  - Counting Down: When `up_down` is low and `en` is asserted, the counter decrements its
  value on each rising edge of the clock.
- - Wrap Around : When counting up and the counter reaches N-1, it wraps around to 0 on the next clock edge.- When counting down and the counter reaches 0, it wraps around to N-1 on the next clock
- edge.
+ - Wrap Around : When counting up and the counter reaches N-1, it wraps around to 0 on the next clock edge.
+- When counting down and the counter reaches 0, it wraps around to N-1 on the next clock edge.
  - Hold : When `en` is deasserted, the counter holds its current value regardless of the clock
  edges.
  - Reset : When `rst` is asserted, the counter is asynchronously reset to 0, overriding all other
- signals
+ signals.
 
- ## Digital circuit 
+## Digital circuit 
  ![image](/imgs/digital_circuit.png)
+
 ## RTL using FSM 
 ```verilog
 module mod_N_counter #(parameter WIDTH = 2 ,parameter N = 3)(
@@ -46,7 +47,8 @@ module mod_N_counter #(parameter WIDTH = 2 ,parameter N = 3)(
 parameter [2:0] RST = 3'b000,
                 INCREMENT = 3'b011,
                 DECREMENT = 3'b010,
-                IDLE = 3'b111;
+                IDLE = 3'b111,
+                WRAP = 3'b110;
 
 reg [2:0]state,next;
 // sequential asysnchronous reset 
@@ -57,11 +59,22 @@ end
 always @ (state or next or i_en or i_up_down) begin
   case (state)
     //RST : next = ((!i_en) || i_rst)? ((! i_en) ? IDLE : RST) : { i_rst , i_en , i_up_down};
-    RST: next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
-    INCREMENT: next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
-    DECREMENT: next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
-    IDLE: next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
-    default: next = RST;
+    RST : next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
+    
+    INCREMENT : begin  
+      next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
+      next = (o_Q == N-1) ? WRAP : next;
+    end 
+    
+    DECREMENT : next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
+    
+    WRAP : begin  
+      next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
+      next = (o_Q == N-1) ? WRAP : next;
+    end 
+    
+    IDLE : next = i_en ? (i_up_down ? INCREMENT : DECREMENT) : IDLE;
+       default: next = RST;
   endcase
 end
 // sequential output assignment 
@@ -69,17 +82,17 @@ always @ (posedge i_clk) begin
   case (state)
     RST : o_Q <=0;
 
-    INCREMENT : o_Q <= (o_Q == N-1) ? 0 : (o_Q + 1) ;
+    INCREMENT : o_Q <= o_Q + 1;
 
-    DECREMENT : o_Q <=  (o_Q == 0) ? N-1 : (o_Q - 1) ;
+    DECREMENT : o_Q <= o_Q - 1;
 
+    WRAP : o_Q <= 0;
     IDLE : o_Q <= o_Q ;
 
     default : o_Q <=0;
   endcase
 end
-endmodule
-```
+endmodule```
 ## RTL
 ``` verilog
 module mod_N_counter #(parameter WIDTH = 2 ,parameter N = 3)(
@@ -189,7 +202,13 @@ endmodule
 ```
 ## Constraints 
 ```tcl 
-create_clock -period 5 -name clk [get_ports clk] -wave{0,5};
+set sdc_version 2.1
+
+create_clock -period 5 -name clk [get_ports clk] -waveform 0 , 5;
+set_clock_latency 3 clk
+
+set_clock_uncertainty 0.5 clk
+
 #####setting IO paths ##########
 #setting up max and min input delay
 set_input_delay -max 3 -clock [get_clocks clk][get_portsIN_*];
@@ -202,6 +221,7 @@ set_input_transition -min 7.5 [get_portsIN_*];
 #setting up max and min input delay
 set_output_delay -max 3 -clock [get_clocks clk][get_ports o_Q];
 set_output_delay -min 0.5 -clock [get_clocks clk][get_ports o_Q];
+
 ```
 ## Simulation screenshot
 ![image](imgs/counter_results.png)
