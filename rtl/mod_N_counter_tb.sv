@@ -3,8 +3,8 @@
 
 module tb_mod_N_counter;
 
-parameter WIDTH = 2;
-parameter N = 3;
+parameter WIDTH = 3;
+parameter N = 6;
 
 // Inputs
 reg i_clk;

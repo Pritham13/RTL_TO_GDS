@@ -1,4 +1,4 @@
-module mod_N_counter #(parameter WIDTH = 2 ,parameter N = 3)(
+module mod_N_counter #(parameter WIDTH = 3 ,parameter N = 6)(
   input i_clk,
   input i_rst,
   input i_en,
