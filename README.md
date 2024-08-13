@@ -1,7 +1,7 @@
 # Mod N up down counter
 
 ## Contents 
-- [Features](#digital-circuit)
+- [Features](#features)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [Digital circuit](#digital-circuit)
