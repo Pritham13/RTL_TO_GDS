@@ -1,10 +1,16 @@
 # Mod N up down counter
-## __Introduction__
- The mod-N conditional up-down counter is a digital counter that counts up or down based on a
- control signal and wraps around after reaching a maximum count of N-1.
- It is commonly used in applications where counting in a specific range with directional control is
- required
- 
+
+## Contents 
+- [Features](#digital-circuit)
+- [Inputs](#inputs)
+- [Outputs](#outputs)
+- [Digital circuit](#digital-circuit)
+- [RTL using FSM](#rtl-using-fsm)
+- [RTL](#rtl)
+- [Testbench](#testbench)
+- [Constraints](#constraints)
+- [Simulation screenshot](#simulation-screenshot)
+
 ## Features
 - Counts from 0 to N-1
 - Up and down counting capability based on control signal
@@ -20,17 +26,6 @@
  asserted (high), the counter counts up; when deasserted (low), the counter counts down.
 ## Outputs
  - Count (o_Q): The current value of the counter, ranging from 0 to N-1
- ## Operation
- - Counting Up: When `up_down` is high and `en` is asserted, the counter increments its value
- on each rising edge of the clock.
- - Counting Down: When `up_down` is low and `en` is asserted, the counter decrements its
- value on each rising edge of the clock.
- - Wrap Around : When counting up and the counter reaches N-1, it wraps around to 0 on the next clock edge.
-- When counting down and the counter reaches 0, it wraps around to N-1 on the next clock edge.
- - Hold : When `en` is deasserted, the counter holds its current value regardless of the clock
- edges.
- - Reset : When `rst` is asserted, the counter is asynchronously reset to 0, overriding all other
- signals.
 
 ## Digital circuit 
  ![image](/imgs/digital_circuit.png)
