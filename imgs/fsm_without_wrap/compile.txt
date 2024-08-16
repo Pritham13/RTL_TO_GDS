@@ -1,0 +1,212 @@
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler WLM                                                               |
+| Comand Line  | compile_ultra                                                                     |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 35                                     |
+| Number of User Hierarchies                              | 0                                      |
+| Sequential Cell Count                                   | 6                                      |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT Class                                      | 0                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch Cells                              | 0                                      |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+  Simplifying Design 'mod_N_counter'
+
+Information: Ungrouping 0 of 1 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'mod_N_counter'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'sky130_fd_sc_hd__macro_sparecell' in the library 'sky130_fd_sc_hd__tt_025C_1v80' is not characterized for internal power. (PWR-536)
+Information: The library cell 'sky130_fd_sc_hd__conb_1' in the library 'sky130_fd_sc_hd__tt_025C_1v80' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02     332.8      0.00       0.0    1973.3                              0.1391
+    0:00:02     332.8      0.00       0.0    1973.3                              0.1391
+
+  Beginning Constant Register Removal
+  -----------------------------------
+    0:00:02     332.8      0.00       0.0    1973.3                              0.1391
+    0:00:02     332.8      0.00       0.0    1973.3                              0.1391
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 89)
+  Global Optimization (Phase 90)
+  Global Optimization (Phase 91)
+  Global Optimization (Phase 92)
+  Global Optimization (Phase 93)
+  Global Optimization (Phase 94)
+  Global Optimization (Phase 95)
+  Global Optimization (Phase 96)
+  Global Optimization (Phase 97)
+  Global Optimization (Phase 98)
+  Global Optimization (Phase 99)
+  Global Optimization (Phase 100)
+  Global Optimization (Phase 101)
+  Global Optimization (Phase 102)
+  Global Optimization (Phase 103)
+  Global Optimization (Phase 104)
+  Global Optimization (Phase 105)
+  Global Optimization (Phase 106)
+  Global Optimization (Phase 107)
+  Global Optimization (Phase 108)
+  Global Optimization (Phase 109)
+  Global Optimization (Phase 110)
+  Global Optimization (Phase 111)
+  Global Optimization (Phase 112)
+  Global Optimization (Phase 113)
+  Global Optimization (Phase 114)
+  Global Optimization (Phase 115)
+  Global Optimization (Phase 116)
+  Global Optimization (Phase 117)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1464
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1464
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1464
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1418
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1418
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1418
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1396
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1396
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1396
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02     295.3      0.00       0.0    4401.3                              0.1358
+  Global Optimization (Phase 118)
+  Global Optimization (Phase 119)
+  Global Optimization (Phase 120)
+    0:00:02     399.1      0.00       0.0       0.0                              0.1864
+    0:00:02     399.1      0.00       0.0       0.0                              0.1864
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02     399.1      0.00       0.0       0.0                              0.1864
+  Global Optimization (Phase 121)
+  Global Optimization (Phase 122)
+  Global Optimization (Phase 123)
+  Global Optimization (Phase 124)
+  Global Optimization (Phase 125)
+  Global Optimization (Phase 126)
+  Global Optimization (Phase 127)
+  Global Optimization (Phase 128)
+  Global Optimization (Phase 129)
+  Global Optimization (Phase 130)
+  Global Optimization (Phase 131)
+  Global Optimization (Phase 132)
+    0:00:02     347.8      0.00       0.0       0.0                              0.1456
+    0:00:02     347.8      0.00       0.0       0.0                              0.1456
+    0:00:02     347.8      0.00       0.0       0.0                              0.1456
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02     312.8      0.00       0.0      10.2                              0.1284
+    0:00:02     309.0      0.00       0.0      10.2                              0.1245
+    0:00:02     309.0      0.00       0.0      10.2                              0.1245
+    0:00:02     309.0      0.00       0.0      10.2                              0.1245
+    0:00:02     309.0      0.00       0.0      10.2                              0.1245
+    0:00:02     346.6      0.00       0.0       0.0                              0.1444
+    0:00:02     346.6      0.00       0.0       0.0                              0.1444
+    0:00:02     346.6      0.00       0.0       0.0                              0.1444
+    0:00:02     346.6      0.00       0.0       0.0                              0.1444
+    0:00:02     346.6      0.00       0.0       0.0                              0.1444
+    0:00:02     346.6      0.00       0.0       0.0                              0.1444
+Loading db file '/home/student/cadWorkDir/sky130RTLDesignAndSynthesisWorkshop-main/DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
