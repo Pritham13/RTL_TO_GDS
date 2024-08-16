@@ -232,3 +232,18 @@ set_load -min 0.5 [get_ports o_Q];
 ```
 ## Simulation screenshot
 ![image](imgs/counter_results.png)
+
+# Netlist 
+The Netlist generated for the [design](#rtl-using-fsm) is [netlist](netlists/fsm_with_wrap/netlist.v)
+
+# Timing Reports
+
+The timing reports generated is as follows :
+
+![image](imgs/fsm_with_wrap/max_report.png)
+![image](imgs/fsm_with_wrap/min_report.png) 
+
+## Netlist Schematic
+![image](imgs/fsm_with_wrap/schematic.png) 
+
+
