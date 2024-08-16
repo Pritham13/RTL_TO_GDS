@@ -1,0 +1,43 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -max_paths 1
+Design : mod_N_counter
+Version: T-2022.03-SP5
+Date   : Fri Aug 16 13:07:58 2024
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: o_Q_reg[2] (rising edge-triggered flip-flop clocked by my_clk)
+  Endpoint: o_Q_reg[2] (rising edge-triggered flip-flop clocked by my_clk)
+  Path Group: my_clk
+  Path Type: min
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock my_clk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             1.00       1.00
+  o_Q_reg[2]/CLK (sky130_fd_sc_hd__dfxtp_1)               0.00       1.00 r
+  o_Q_reg[2]/Q (sky130_fd_sc_hd__dfxtp_1)                 0.33       1.33 f
+  U74/Y (sky130_fd_sc_hd__a21oi_1)                        0.12       1.44 r
+  o_Q_reg[2]/D (sky130_fd_sc_hd__dfxtp_1)                 0.00       1.44 r
+  data arrival time                                                  1.44
+
+  clock my_clk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             1.00       1.00
+  clock uncertainty                                       0.25       1.25
+  o_Q_reg[2]/CLK (sky130_fd_sc_hd__dfxtp_1)               0.00       1.25 r
+  library hold time                                      -0.04       1.21
+  data required time                                                 1.21
+  --------------------------------------------------------------------------
+  data required time                                                 1.21
+  data arrival time                                                 -1.44
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.24
+
+
+1
