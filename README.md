@@ -10,7 +10,9 @@
 - [Testbench](#testbench)
 - [Constraints](#constraints)
 - [Simulation screenshot](#simulation-screenshot)
-
+- [Netlist](#netlist)
+- [Timing Report](#timing-reports)
+- [Netlist Schematic](#netlist-schematic)
 ## Features
 - Counts from 0 to N-1
 - Up and down counting capability based on control signal
@@ -233,10 +235,10 @@ set_load -min 0.5 [get_ports o_Q];
 ## Simulation screenshot
 ![image](imgs/counter_results.png)
 
-# Netlist 
+## Netlist 
 The Netlist generated for the [design](#rtl-using-fsm) is [netlist](netlists/fsm_with_wrap/netlist.v)
 
-# Timing Reports
+## Timing Reports
 
 The timing reports generated is as follows :
 
