@@ -8,4 +8,4 @@ synthesize -to_mapped -effort high
 
 report area > area.rpt 
 report timing > timing.rpt 
-write_hdl > GLS_netlist.v
+write_hdl  GLS_netlist.v
